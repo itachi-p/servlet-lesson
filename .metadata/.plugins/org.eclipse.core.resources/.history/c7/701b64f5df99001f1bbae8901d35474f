@@ -1,0 +1,29 @@
+package servlet;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/UranaiServlet")
+public class UranaiServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 運勢をランダムで決定
+		String[] luckArray = { "極上", "吉", "並", "最悪" };
+		int index = (int)(Math.random() * 3);
+		String todaysLuck = luckArray[index];
+		// 実行日を取得
+		Date date = new Date(); // importはjava.sql.Dateではない点に注意
+		SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+		String today = sdf.format(date);
+		
+	}
+
+}

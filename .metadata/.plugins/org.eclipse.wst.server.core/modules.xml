@@ -3,4 +3,5 @@
   <module moduleId="org.eclipse.jst.jee.server:SampleWeb" serverId="Tomcat9_Java17"/>
   <module moduleId="org.eclipse.jst.jee.server:example" serverId="Tomcat9_Java17"/>
   <module moduleId="org.eclipse.jst.jee.server:lesson" serverId="Tomcat9_Java17"/>
+  <module moduleId="org.eclipse.jst.jee.server:LessonWeb" serverId="Tomcat9_Java17"/>
 </modules>

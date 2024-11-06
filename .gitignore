@@ -1,1 +1,29 @@
+# Eclipse specific files and folders
 /.metadata/
+/bin/
+/.tmp/
+/target/
+/.settings/
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse Core specific files and folders
+/.recommenders/

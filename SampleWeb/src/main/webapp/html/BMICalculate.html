@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>BMI Calculate</title>
+</head>
+<body>
+	<h1>BMI/肥満度チェック</h1>
+	<p>あなたの肥満度をチェックします。</p>
+	<p>次の項目に入力し、判定ボタンを押してください。</p>
+	<form method="post" action="/SampleWeb/BMIAndObesity">
+	身長は？
+	<!-- number型で制限しない場合、Java側で例外処理が必要 -->
+	<input type="text" name="height">cm<br />
+	体重は？
+	<input type="text" name="weight">kg<br />
+	<input type="submit" value="判定">
+	</form>
+</body>
+</html>

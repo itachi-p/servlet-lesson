@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>InputServlet</title>
+</head>
+<body>
+	<p><font size="+1" color="red">自己紹介をしてください</font></p>
+	<form method="post" action="/SampleWeb/InputServlet">
+	<table border="0">
+	<tr>
+		<td width="60">氏名</td>
+		<td><input type="text" name="name"></td>
+	</tr>
+	<tr>
+		<td>年齢</td>
+		<td><select name="age" size="1">
+			<option value="20">20 歳</option>
+			<option value="21">21 歳</option>
+			<option value="22" selected>22 歳</option>
+			<option value="23">23 歳</option>
+			<option value="24">24 歳</option>
+			<option value="25">25 歳</option>
+			<option value="26">26 歳</option>
+			<option value="27">27 歳</option>
+			<option value="28">28 歳</option>
+			<option value="29">29 歳</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td>恋人</td>
+		<td><input type="radio" name="koibito" value="0" checked>いません
+		<input type="radio" name="koibito" value="1">います</td>
+	</tr>
+	<tr>
+		<td>趣味</td>
+		<td>
+			<input type="checkbox" name="hobby" value="読書">読書
+			<input type="checkbox" name="hobby" value="スポーツ">スポーツ
+			<input type="checkbox" name="hobby" value="お笑い">お笑い
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<input type="checkbox" name="hobby" value="映画">映画
+			<input type="checkbox" name="hobby" value="旅行">旅行
+			<input type="checkbox" name="hobby" value="ショッピング">ショッピング
+		</td>
+	</tr>
+	<tr>
+		<td>性格</td>
+		<td><textarea rows="5" cols="30" name="seikaku"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" name="submit" value="確認">
+		</td>
+	</tr>
+	</table>
+	</form>
+</body>
+</html>

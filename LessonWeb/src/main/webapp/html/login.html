@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>演習5 ログイン画面(ダミー)</title>
+</head>
+<body>
+	<h2>ログイン画面</h2>
+	<form action="/LessonWeb/LoginServlet" method="post">
+		<table border="0">
+			<tr>
+				<td width="150"><label for="userid">ユーザID:</label></td>
+				<td><input type="text" name="user" id="userid"></td>
+			</tr>
+			<tr>
+				<td><label for="password">パスワード:</label></td>
+				<td><input type="password" name="pass" id="password"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="reset">リセット</button>
+					<button type="submit">ログイン</button>
+				</td>
+			</tr>		
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>動物選択</title>
+		<meta http-equiv ="Content-Type" content="text/html; charset= UTF-8">
+	</head>
+	
+	<body bgcolor="#FFFFFF" text="#000000">
+		<p><font size="+1" color="red">選択画面</font></p>
+		<p><font size="+1">以下のリストから好きな動物を選択してください</font></p>
+	<form name="form" method="post" action="/SampleWeb/SessionServlet">
+		<select name="animal">
+			<option value="パンダ">パンダ</option>
+			<option value="うさぎ">うさぎ</option>
+			<option value="コアラ">コアラ</option>
+			<option value="ライオン">ライオン</option>
+			<option value="鹿">鹿</option>
+			<option value="ペンギン">ペンギン</option>
+			<option value="アライグマ">アライグマ</option>
+			<option value="ラッコ">ラッコ</option>
+			<option value="イルカ">イルカ</option>
+		</select>
+		<input type="submit" name="submit" value="送信">
+	</form>
+</body>
+</html>

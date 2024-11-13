@@ -1,6 +1,10 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import bean.HumanBean;
+
 // DbAccessクラスは使い回す
 public class UserDao extends DbAccess {
 	public String getName(String id, String pass) {
@@ -18,10 +22,10 @@ public class UserDao extends DbAccess {
 			ps.setString(2, pass);
 			// SQLを発行し、検索結果から取得したユーザ名を変数へ代入
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				name = rs.getString("name");
 			}
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
@@ -29,7 +33,7 @@ public class UserDao extends DbAccess {
 		// ユーザ名を返す
 		return name;
 	}
-	
+
 	// レコードの追加メソッド
 	public void input(String id, String name, int age) {
 		String sql = "INSERT INTO id_tbl(id, name, age) VALUES(?,?,?)";
@@ -42,12 +46,43 @@ public class UserDao extends DbAccess {
 			ps.setString(2, name);
 			ps.setInt(3, age);
 			// INSERT文の実行(DBを更新するため、SELECTとはメソッドが違う)
-//			int rs = ps.executeUpdate(); // 戻り値はDBのレコードに影響を与えた行数だが、使っていない
+			//			int rs = ps.executeUpdate(); // 戻り値はDBのレコードに影響を与えた行数だが、使っていない
 			ps.executeUpdate();
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect(); // DB切断
-		}	
+		}
+	}
+
+	// 全件検索メソッド
+	public ArrayList<HumanBean> getList() {
+		// Beansを格納するリストの宣言
+		ArrayList<HumanBean> list = new ArrayList<>();
+		// 全件検索のSQL文を記述
+		String sql = "SELECT id, name, age FROM id_tbl ORDER BY id";
+		// DB接続を確立
+		connect();
+
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				// Beanの生成
+				HumanBean bean = new HumanBean();
+				// 生成したBeanにDBから取得したレコード1行の値をセット
+				bean.setId(rs.getString("id"));
+				bean.setName(rs.getString("name"));
+				bean.setAge(rs.getInt("age"));
+				// レコード1行分のBeanをリストに格納
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		// Beansを格納したリストを返す
+		return list;
 	}
 }

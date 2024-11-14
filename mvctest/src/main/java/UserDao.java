@@ -85,4 +85,43 @@ public class UserDao extends DbAccess {
 		// Beansを格納したリストを返す
 		return list;
 	}
+	
+	// 指定idのレコード1件を検索
+	public HumanBean getRecord(String id) {
+		HumanBean bean = new HumanBean();
+		String sql = "SELECT id, name, age FROM id_tbl WHERE id = ?";
+		connect();
+		
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				bean.setId(rs.getString("id"));
+				bean.setName(rs.getString("name"));
+				bean.setAge(rs.getInt("age"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return bean;
+	}
+	
+	// レコードを1件DBから削除
+	public void delete(String id) {
+		String sql = "DELETE FROM id_tbl WHERE id = ?";
+		connect();
+		
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
 }

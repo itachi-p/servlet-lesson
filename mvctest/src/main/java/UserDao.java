@@ -124,4 +124,21 @@ public class UserDao extends DbAccess {
 			disconnect();
 		}
 	}
+	
+	// レコードを1件更新(上書き)
+	public void update(String id, String name, int age) {
+		String sql = "UPDATE id_tbl SET name= ?, age = ? WHERE id = ?";
+		connect();
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setInt(2, age);
+			ps.setString(3, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
 }

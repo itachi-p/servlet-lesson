@@ -12,7 +12,7 @@
   
   <%-- 3種類の処理画面をフラグによって切り替え --%>
   <%
-  switch ((int)session.getAttribute("sw")) {
+  switch ((Integer)session.getAttribute("sw")) { // (int)より(Integer)でキャストする方が望ましい
   case 0: // 初期画面(全件検索)
   %>
     <tr>

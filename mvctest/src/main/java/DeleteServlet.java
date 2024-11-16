@@ -26,7 +26,7 @@ public class DeleteServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		// JSPの画面状態3分岐(0:全件一覧・1:1件選択削除確認・2:削除後確認)をセッションで管理
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		// 画面切り替えフラグの設定:初期状態(全件検索)時は0
 		int sw = 0;
 		// JSP側で押されたsubmitボタンの種類(nullか「確定」か「一覧へ戻る」)

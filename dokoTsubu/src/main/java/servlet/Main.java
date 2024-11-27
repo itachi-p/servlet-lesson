@@ -26,7 +26,7 @@ public class Main extends HttpServlet {
 		List<Mutter> mutterList = (List<Mutter>)application.getAttribute("mutterList");
 		// 取得できなかった場合(最初のアクセス時)は、新規作成しアプリケーションスコープに保存
 		if (mutterList == null) {
-			mutterList = new ArrayList();
+			mutterList = new ArrayList<>();
 			application.setAttribute("mutterList", mutterList);
 		}
 		

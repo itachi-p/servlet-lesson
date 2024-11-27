@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ page import="model.User"%>
 <%
-// セッションスコープに保存されたユーザー情報を取得
+// セッションスコープからユーザー情報を取得
 User loginUser = (User) session.getAttribute("loginUser");
 %>
 <!DOCTYPE html>
@@ -12,10 +12,8 @@ User loginUser = (User) session.getAttribute("loginUser");
 <title>どこつぶ</title>
 </head>
 <body>
-  <h1>どこつぶメイン</h1>
-  <p>
-    <%= loginUser.getName() %>さん、ログイン中
-    <a href="Logout">ログアウト</a>    
-  </p>
+  <h1>どこつぶログアウト</h1>
+  <p>ログアウトしました</p>
+  <a href="index.jsp">トップへ</a>
 </body>
 </html>

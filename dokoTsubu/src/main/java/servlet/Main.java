@@ -68,6 +68,9 @@ public class Main extends HttpServlet {
 			
 			// アプリケーションスコープにつぶやきリストを追加
 			application.setAttribute("mutterList", mutterList);
+		} else {
+			// エラーメッセージをリクエストスコープに保存
+			request.setAttribute("errorMsg", "つぶやきが入力されていません");
 		}
 		
 		// メイン画面にフォワード

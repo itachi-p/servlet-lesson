@@ -6,6 +6,8 @@
 User loginUser = (User) session.getAttribute("loginUser");
 // アプリケーションスコープに保存されたつぶやきリストを取得
 List<Mutter> mutterList = (List<Mutter>)application.getAttribute("mutterList");
+// リクエストスコープに保存されたエラーメッセージを取得
+String errorMsg = (String)request.getAttribute("errorMsg");
 %>
 <!DOCTYPE html>
 <html>
@@ -25,6 +27,10 @@ List<Mutter> mutterList = (List<Mutter>)application.getAttribute("mutterList");
     <input type="text" name="text">
     <input type="submit" value="つぶやく">
   </form>
+  <%-- エラーメッセージがあれば表示 --%>
+  <% if (errorMsg != null) { %>
+    <p><%= errorMsg %></p>
+  <% } %>
   <%-- 拡張for文を使ってつぶやき一覧を順に取得 --%>
   <% for (Mutter mutter : mutterList) { %>
     <p><%= mutter.getUserName() %>:<%= mutter.getText() %></p>
